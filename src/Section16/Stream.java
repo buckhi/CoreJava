@@ -16,15 +16,22 @@ public class Stream {
 
         List<String> gNumbers = new ArrayList<>();
 
-        bingoNumber.forEach(number -> {
-            if (number.toUpperCase().startsWith("G")) {
-                gNumbers.add(number);
-                System.out.println(number);
-            }
-        });
+//        bingoNumber.forEach(number -> {
+//            if (number.toUpperCase().startsWith("G")) {
+//                gNumbers.add(number);
+//                System.out.println(number);
+//            }
+//        });
+//
+//        gNumbers.sort((String s1, String s2) -> s1.compareTo(s2));
+//        gNumbers.forEach((String s) -> System.out.println(s));
 
-        gNumbers.sort((String s1, String s2) -> s1.compareTo(s2));
-        gNumbers.forEach((String s) -> System.out.println(s));
+        bingoNumber.stream()
+                .map(String::toUpperCase)
+                .filter(s -> s.startsWith("G")).sorted()
+                .forEach(System.out::println);
+
+
 
     }
 }
