@@ -31,6 +31,11 @@ public class Stream {
                 .filter(s -> s.startsWith("G")).sorted()
                 .forEach(System.out::println);
 
+        java.util.stream.Stream<String> ioNumberStream = java.util.stream.Stream.of("I23", "I45", "I676", "I89");
+        java.util.stream.Stream<String> inNumberStream = java.util.stream.Stream.of("N23", "N41", "I66", "I39");
+        java.util.stream.Stream<String> concatStream = java.util.stream.Stream.concat(ioNumberStream, inNumberStream);
+        System.out.println("===============================");
+        System.out.println(concatStream.distinct().peek(System.out::println).count());
 
 
     }
